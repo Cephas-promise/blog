@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%block title%}edit post{%endblock%}
+{%block content %}
+{% if user.username == post.author %}
+<form action="" method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <br>
+    <br>
+    <button>update</button>
+</form>
+
+{%else%}
+sorry this post does not belong to you, hence you can not edit it.  why am i saying sorry? go back {{user.username}}
+{%endif%}
+{%endblock%}
